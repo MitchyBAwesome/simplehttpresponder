@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	port := 8080
+	port := 80
 
 	http.HandleFunc("/helloworld", helloWorldHandler)
 
