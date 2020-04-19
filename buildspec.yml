@@ -6,7 +6,7 @@ phases:
       - echo -n "$CODEBUILD_BUILD_ID" | sed "s/.*:\([[:xdigit:]]\{7\}\).*/\1/" > /tmp/build_id.out
       - printf "%s:%s" "$REPOSITORY_URI" "$(cat /tmp/build_id.out)" > /tmp/build_tag.out
       - echo "$(cat /tmp/build_tag.out)"
-      - printf '[{"name":"go-http-server","imageUri":"%s"}]' "$(cat /tmp/build_tag.out)" > imagedefinitions.json
+      - printf '[{"name":"web","imageUri":"%s"}]' "$(cat /tmp/build_tag.out)" > imagedefinitions.json
       - echo Logging in to Amazon ECR...
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
   build:
